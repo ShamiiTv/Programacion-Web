@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary justify-content-center">
+        <nav class="navbar navbar-expand-lg .bg-black justify-content-center">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.html"><img src="Imagenes/Iconos/S.png" alt="LogoPagina"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,7 +67,7 @@
         <div class="product">
             <img src="Imagenes/Teclados/Trazer.jpg" alt="Producto 3">
             <div class="product-details">
-                <h2>SteelSeries Aerox 5 Wireless</h2>
+                <h2>Razer BlackWidow V3</h2>
                 <p>Precio: $309.990 CLP</p>
                 <p>Cantidad: 1</p>
             </div>
@@ -76,7 +76,7 @@
         <div class="product">
             <img src="Imagenes/Mouses/SteelSeries.png" alt="Producto 3">
             <div class="product-details">
-                <h2>Producto 3</h2>
+                <h2>SteelSeries Aerox 5 Wireless</h2>
                 <p>Precio: $179.995 CLP</p>
                 <p>Cantidad: 1</p>
             </div>
@@ -88,6 +88,41 @@
         
         <button type="button" class="btn btn-success">Pagar</button>
     </div>
+
+
+    <a href="#" class="volver-arriba" id="volverArriba"><img src="Imagenes/Iconos/Scroll Up.png" alt="Volver Arriba"></a>
+
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2024 Shami Store. All rights reserved.</p>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="contact.html">Contacto</a></li>
+                <li class="list-inline-item"><a href="about.html">Acerca de nosotros</a></li>
+                <li class="list-inline-item"><a href="privacy.html">Politica de privacidad</a></li>
+                <li class="list-inline-item"><a href="terms.html">Terminos y condiciones</a></li>
+            </ul>
+        </div>
+    </footer>
+
+
+
+    <script>
+        window.onscroll = function() {scrollFunction()};
+    
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("volverArriba").classList.add("mostrar");
+            } else {
+                document.getElementById("volverArriba").classList.remove("mostrar");
+            }
+        }
+    
+        document.getElementById("volverArriba").addEventListener("click", function() {
+            document.body.scrollTop = 0; // Para Safari
+            document.documentElement.scrollTop = 0; // Para Chrome, Firefox, IE y Opera
+        });
+    </script>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

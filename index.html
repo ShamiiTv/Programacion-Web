@@ -37,31 +37,39 @@
         <div id="combinedCarousel" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="https://via.placeholder.com/800x400" class="d-block w-100" alt="...">
+              <img src="Imagenes/Carrusel/XeneonFlexCarrusel.png" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-              <img src="https://via.placeholder.com/800x400" class="d-block w-100" alt="...">
+              <img src="Imagenes/Carrusel/ProcesadorCarrusel.png" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-              <img src="https://via.placeholder.com/800x400" class="d-block w-100" alt="...">
+              <img src="Imagenes/Carrusel/GraficaCarrusel.png" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-              <img src="https://via.placeholder.com/800x400" class="d-block w-100" alt="...">
+              <img src="Imagenes/Carrusel/TecladoCarrusel.png" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-              <img src="https://via.placeholder.com/800x400" class="d-block w-100" alt="...">
+              <img src="Imagenes/Carrusel/MouseCarrusel.png" class="d-block w-100" alt="...">
             </div>
           </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#combinedCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
+            <span class="visually-hidden">Anterior</span>
           </button>
           <button class="carousel-control-next" type="button" data-bs-target="#combinedCarousel" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
+            <span class="visually-hidden">Siguiente</span>
           </button>
         </div>
       </div>
+
+
+      <br>
+      <br>
+      <br>
+
+
+      <a href="#" class="volver-arriba" id="volverArriba"><img src="Imagenes/Iconos/Scroll Up.png" alt="Volver Arriba"></a>
 
 
     <footer>
@@ -76,5 +84,22 @@
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script>
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("volverArriba").classList.add("mostrar");
+        } else {
+            document.getElementById("volverArriba").classList.remove("mostrar");
+        }
+    }
+
+    document.getElementById("volverArriba").addEventListener("click", function() {
+        document.body.scrollTop = 0; // Para Safari
+        document.documentElement.scrollTop = 0; // Para Chrome, Firefox, IE y Opera
+    });
+</script>
+
 </body> 
 </html>
