@@ -13,7 +13,7 @@ body {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 100%;
     margin: 20px auto;
     background-color: #2b2b2b !important; /* Negro */
     padding: 20px;
@@ -24,6 +24,7 @@ body {
 
 .product {
     display: flex;
+    flex-wrap: wrap; /* Permite que los productos se envuelvan si no caben en una fila */
     margin-bottom: 20px;
     padding-bottom: 20px;
     border-bottom: 1px solid #808080; /* Gris más claro */
@@ -35,8 +36,6 @@ body {
     object-fit: contain;
     margin-right: 20px;
 }
-
-
 
 .product-details {
     flex: 1;
@@ -76,7 +75,6 @@ body {
 .btn:hover {
     background-color: #0056b3;
 }
-
 
 /* Botón flotante */
 .volver-arriba {
