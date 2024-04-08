@@ -1,0 +1,109 @@
+
+header,
+.navbar {
+    background-color: #2b2b2b !important; 
+    margin: 0;
+    padding: 0;
+}
+
+.container-fluid {
+    padding: 0 !important;
+    background-color: #2b2b2b; 
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #1f1f1f !important; 
+}
+
+footer {
+    background-color: #00e5ff !important; 
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: auto;
+}
+
+footer a {
+    color: #ffffff; 
+}
+
+footer a:hover {
+    color: #80ffea; 
+}
+
+.navbar-nav .nav-link {
+    color: #ffffff !important; 
+    background-color: #2b2b2b; 
+}
+
+.navbar-nav .nav-link:hover {
+    color: #80ffea !important; 
+    background-color: #2b2b2b; 
+}
+
+.volver-arriba {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: #ffffff; 
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: none;
+    z-index: 1000; 
+}
+
+.volver-arriba.mostrar {
+    display: block;
+}
+
+.container {
+    padding: 20px;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+h1 {
+    color: #fff;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #ddd;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.lead {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.texto-degradado {
+    text-align: center;
+    padding: 20px;
+}
+
+.texto-degradado h1, .texto-degradado p {
+    background: linear-gradient(45deg, #00FFFF, #8A2BE2, #FF1493);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.texto-degradado p {
+    font-size: 1.2rem;
+}
+
