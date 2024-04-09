@@ -55,6 +55,7 @@ footer a:hover {
     height: auto;
 }
 
+
 .social-icons li {
     display: inline-block;
     margin-right: 10px;
@@ -207,6 +208,11 @@ footer a:hover {
 .card-img-top {
     max-width: 100%;
     height: auto;
+    transition: transform 0.3s ease; 
+}
+
+.card-img-top:hover {
+    transform: scale(1.1);
 }
 
 
