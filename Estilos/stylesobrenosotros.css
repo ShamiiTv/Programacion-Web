@@ -131,25 +131,25 @@ footer a:hover {
     color: #80ffea;
 }
 
-.social-icons {
+.iconos-redes {
     list-style-type: none;
     padding: 0;
 }
 
 
-.social-icons img{
+.iconos-redes img{
     list-style-type: none;
     padding: 0;
     width: 70px;
     height: auto;
 }
 
-.social-icons li {
+.iconos-redes li {
     display: inline-block;
     margin-right: 10px;
 }
 
-.social-icons a {
+.iconos-redes a {
     color: #ffffff;
     font-size: 20px;
 }

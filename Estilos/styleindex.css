@@ -42,13 +42,13 @@ footer a:hover {
     color: #80ffea;
 }
 
-.social-icons {
+.iconos-redes {
     list-style-type: none;
     padding: 0;
 }
 
 
-.social-icons img{
+.iconos-redes img{
     list-style-type: none;
     padding: 0;
     width: 70px;
@@ -56,12 +56,12 @@ footer a:hover {
 }
 
 
-.social-icons li {
+.iconos-redes li {
     display: inline-block;
     margin-right: 10px;
 }
 
-.social-icons a {
+.iconos-redes a {
     color: #ffffff;
     font-size: 20px;
 }
@@ -152,7 +152,7 @@ footer a:hover {
     line-height: 1.6;
 }
 
-.contact-form {
+.formulario-contacto {
     background-color: #2b2b2b;
     padding: 20px;
     border-radius: 10px;
@@ -160,21 +160,21 @@ footer a:hover {
     margin-bottom: 20px;
 }
 
-.contact-form h2 {
+.formulario-contacto h2 {
     font-size: 24px;
     font-weight: bold;
     color: #68e1fb;
     margin-bottom: 20px;
 }
 
-.contact-form label {
+.formulario-contacto label {
     font-weight: bold;
     color: #ffffff; 
 }
 
-.contact-form input[type="text"],
-.contact-form input[type="email"],
-.contact-form textarea {
+.formulario-contacto input[type="text"],
+.formulario-contacto input[type="email"],
+.formulario-contacto textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
@@ -182,11 +182,11 @@ footer a:hover {
     border-radius: 5px;
 }
 
-.contact-form textarea {
+.formulario-contacto textarea {
     resize: vertical;
 }
 
-.contact-form button {
+.formulario-contacto button {
     background-color: #7c3ee5;
     border: none;
     color: white;
@@ -195,7 +195,7 @@ footer a:hover {
     cursor: pointer;
 }
 
-.contact-form button:hover {
+.formulario-contacto button:hover {
     background-color: #0056b3;
 }
 
