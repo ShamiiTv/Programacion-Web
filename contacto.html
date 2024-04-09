@@ -45,19 +45,29 @@
             <form id="contactForm" action="contacto.html" method="post">
                 <div class="mb-3">
                     <label for="nombre" class="form-label">Nombre:</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" required>
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ej : Shami" required >
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Correo Electrónico:</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Ej : Shami@Store.Cl" required>
+                </div>
+                <div class="mb-3">
+                    <label for="celular" class="form-label">Celular:</label>
+                    <input type="text" class="form-control" id="celular" name="celular" placeholder="Ej : +56 9 XXXX XXXX" required>
                 </div>
                 <div class="mb-3">
                     <label for="asunto" class="form-label">Asunto:</label>
-                    <input type="text" class="form-control" id="asunto" name="asunto" required>
+                    <select name="asunto" id="asunto" required>
+                        <option disabled selected value="">Selecciona un asunto</option>
+                        <option value="consulta">Consulta</option>
+                        <option value="reclamo">Reclamo</option>
+                        <option value="sugerencia">Sugerencia</option>
+                        <option value="otro">Otro</option>
+                    </select>
                 </div>
                 <div class="mb-3">
                     <label for="mensaje" class="form-label">Mensaje:</label>
-                    <textarea class="form-control" id="mensaje" name="mensaje" rows="5" required></textarea>
+                    <textarea class="form-control" id="mensaje" name="mensaje" rows="5" placeholder="Ej : Quisiera saber la disponibilidad del producto" required></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
