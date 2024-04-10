@@ -187,3 +187,9 @@ footer a:hover {
     background-color: #7c3ee5 !important;
     border: none !important;
 }
+
+.limpiar-carrito{
+    background-color: #ff0000 !important;
+    border: none !important;
+    margin: 1vw ;
+}
