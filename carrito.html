@@ -33,11 +33,11 @@
 
     <div class="container">
         <h1>Carrito de Compra</h1>
-        <div id="lista-productos"></div> <!-- Aquí se mostrarán los productos -->
+        <div id="lista-productos"></div> 
 
         <div class="total">
-            <span id="total-carrito">Total: $0 CLP</span> <!-- Aquí se mostrará el total -->
-            <button type="button" class="btn btn-danger limpiar-carrito">Limpiar Carrito</button> <!-- Botón para limpiar el carrito -->
+            <span id="total-carrito">Total: $0 CLP</span> 
+            <button type="button" class="btn btn-danger limpiar-carrito">Limpiar Carrito</button> 
             <button type="button" class="btn btn-success pagar">Pagar</button>
         </div>
     </div>
@@ -71,15 +71,15 @@
             let totalCarrito = document.getElementById('total-carrito');
             let total = 0;
 
-            // Limpiar la lista de productos antes de volver a mostrarlos
+            
             listaProductos.innerHTML = '';
 
-            // Recorrer cada producto en el carrito
+            
             carrito.forEach(function(producto, index) {
-                // Asegurar que la cantidad esté definida correctamente
+                
                 producto.cantidad = producto.cantidad || 1;
 
-                // Crear elementos HTML para mostrar el producto
+                
                 let divProducto = document.createElement('div');
                 divProducto.classList.add('product');
                 divProducto.innerHTML = `
@@ -95,11 +95,11 @@
                 `;
                 listaProductos.appendChild(divProducto);
 
-                // Sumar el precio del producto al total
+                
                 total += producto.precio * producto.cantidad;
             });
 
-            // Mostrar el total del carrito sin decimales
+            
             totalCarrito.textContent = `Total: $${total.toFixed(0).replace(/\d(?=(\d{3})+$)/g, '$&,')} CLP`;
         }
 
@@ -135,15 +135,12 @@
             }
         }
 
-        // Función para limpiar el carrito
-        function limpiarCarrito() {
-            // Limpiar el carrito almacenado en el almacenamiento local
+        
+        function limpiarCarrito() {      
             localStorage.removeItem('carrito');
-            // Actualizar la vista del carrito para reflejar el carrito vacío
             mostrarProductosCarrito();
         }
-
-        // Asociar la función limpiarCarrito al botón correspondiente
+        
         document.querySelector('.limpiar-carrito').addEventListener('click', limpiarCarrito);
     </script>
 

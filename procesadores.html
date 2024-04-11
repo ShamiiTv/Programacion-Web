@@ -45,8 +45,8 @@
                     </div>
                 </div>
             </div>
-            <!-- Se repite similar estructura para otros productos -->
-            <!-- Producto 2 -->
+            
+            
             <div class="col-md-4 mb-4">
                 <div class="card">
                     <img src="Imagenes/Productos/9 7950x.png" class="card-img-top" alt="Producto 2">
@@ -59,7 +59,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Producto 3 -->
+            
             <div class="col-md-4 mb-4">
                 <div class="card">
                     <img src="Imagenes/Productos/i9-11900K.png" class="card-img-top" alt="Producto 3">
@@ -72,7 +72,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Producto 4 -->
+            
             <div class="col-md-4 mb-4">
                 <div class="card">
                     <img src="Imagenes/Productos/9 5950X.png" class="card-img-top" alt="Producto 4">
@@ -85,7 +85,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Producto 5 -->
+            
             <div class="col-md-4 mb-4">
                 <div class="card">
                     <img src="Imagenes/Productos/9-10900K.png" class="card-img-top" alt="Producto 5">
@@ -98,7 +98,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Producto 6 -->
+            
             <div class="col-md-4 mb-4">
                 <div class="card">
                     <img src="Imagenes/Productos/3960X_.png" class="card-img-top" alt="Producto 6">
@@ -122,7 +122,7 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              Producto añadido al carrito
+                <p class="texto-degradado2">Producto añadido al carrito correctamente</p>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Seguir Comprando</button>
@@ -151,15 +151,14 @@
     </footer>
 
     <script>
-        // Función para actualizar el contador de productos en el ícono del carrito
         function actualizarContadorCarrito() {
-            // Obtener el carrito del almacenamiento local (si existe)
+            
             let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
             
-            // Obtener el contador de productos en el carrito
+            
             let contador = document.querySelector('.carro span');
     
-            // Actualizar el contador
+            
             if (contador) {
                 contador.textContent = carrito.length;
             } else {
@@ -167,10 +166,9 @@
             }
         }
     
-        // Llamar a la función para actualizar el contador de productos al cargar la página
+        
         actualizarContadorCarrito();
     
-        // Asignar la función de desplazamiento al botón "Volver arriba"
         window.onscroll = function() {scrollFunction()};
     
         function scrollFunction() {
@@ -181,34 +179,26 @@
             }
         }
     
-        // Función para desplazarse hacia arriba al hacer clic en el botón "Volver arriba"
         document.getElementById("volverArriba").addEventListener("click", function() {
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;
         });
     
         function agregarAlCarrito(nombre, precio, imagen) {
-        // Mostrar el modal
         $('#exampleModal').modal('show');
 
-        // Obtener el carrito del almacenamiento local (si existe)
+        
         let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
-        // Verificar si el producto ya está en el carrito
         let productoExistente = carrito.find(producto => producto.nombre === nombre);
         
         if (productoExistente) {
-            // Si el producto ya está en el carrito, aumentar la cantidad en lugar de agregarlo nuevamente
             productoExistente.cantidad = (productoExistente.cantidad || 1) + 1;
         } else {
-            // Si el producto no está en el carrito, agregarlo al carrito
             carrito.push({ nombre: nombre, precio: precio, imagen: imagen, cantidad: 1 });
         }
 
-        // Guardar el carrito actualizado en el almacenamiento local
         localStorage.setItem('carrito', JSON.stringify(carrito));
-
-        // Actualizar el contador de productos en el ícono del carrito
         actualizarContadorCarrito();
     }
     </script>

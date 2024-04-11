@@ -167,3 +167,14 @@ footer a:hover {
 .col-md-6{
     padding: 20px;
 }
+
+
+.carro{
+    position: absolute;
+    right: 20px;
+}
+
+
+.nav-link {
+    align-self: center !important;
+}

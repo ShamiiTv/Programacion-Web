@@ -254,3 +254,15 @@ footer a:hover {
         
     }
 }
+
+
+.texto-degradado2{
+    background: linear-gradient(45deg, #00FFFF, #8A2BE2, #FF1493);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+p{
+    font-size: 1.1rem;
+}
