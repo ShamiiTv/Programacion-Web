@@ -1,11 +1,21 @@
+function valorDolar() {
+    fetch('https://mindicador.cl/api')
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(dailyIndicators) {
+            preciodolar = dailyIndicators.dolar.valor;
+            mostrarProductosCarrito();
+        })
+        .catch(function(error) {
+            console.log('Error en la solicitud:', error);
+        });
+}
+
 function actualizarContadorCarrito() {
-            
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-    
-    
     let contador = document.querySelector('.carro span');
 
-    
     if (contador) {
         contador.textContent = carrito.length;
     } else {
@@ -13,10 +23,11 @@ function actualizarContadorCarrito() {
     }
 }
 
-
 actualizarContadorCarrito();
 
-window.onscroll = function() {scrollFunction()};
+window.onscroll = function() {
+    scrollFunction();
+};
 
 function scrollFunction() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -25,42 +36,6 @@ function scrollFunction() {
         document.getElementById("volverArriba").classList.remove("mostrar");
     }
 }
-
-document.getElementById("volverArriba").addEventListener("click", function() {
-    document.body.scrollTop = 0; 
-    document.documentElement.scrollTop = 0; 
-});
-
-
-function actualizarContadorCarrito() {
-            
-    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-    
-    
-    let contador = document.querySelector('.carro span');
-
-    
-    if (contador) {
-        contador.textContent = carrito.length;
-    } else {
-        document.querySelector('.carro').innerHTML += `<span class="badge bg-primary">${carrito.length}</span>`;
-    }
-}
-
-
-actualizarContadorCarrito();
-
-
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        document.getElementById("volverArriba").classList.add("mostrar");
-    } else {
-        document.getElementById("volverArriba").classList.remove("mostrar");
-    }
-}
-
 
 document.getElementById("volverArriba").addEventListener("click", function() {
     document.body.scrollTop = 0;
@@ -68,50 +43,37 @@ document.getElementById("volverArriba").addEventListener("click", function() {
 });
 
 function agregarAlCarrito(nombre, precio, imagen) {
+    $('#exampleModal').modal('show');
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    let productoExistente = carrito.find(producto => producto.nombre === nombre);
 
-$('#exampleModal').modal('show');
+    if (productoExistente) {
+        productoExistente.cantidad = (productoExistente.cantidad || 1) + 1;
+    } else {
+        carrito.push({ nombre: nombre, precio: precio, imagen: imagen, cantidad: 1 });
+    }
 
-
-let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-
-
-let productoExistente = carrito.find(producto => producto.nombre === nombre);
-
-if (productoExistente) {
-    
-    productoExistente.cantidad = (productoExistente.cantidad || 1) + 1;
-} else {
-    
-    carrito.push({ nombre: nombre, precio: precio, imagen: imagen, cantidad: 1 });
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+    actualizarContadorCarrito();
 }
-
-
-localStorage.setItem('carrito', JSON.stringify(carrito));
-
-actualizarContadorCarrito();
-}
-
-
 
 window.onload = function() {
-    mostrarProductosCarrito();
+    valorDolar();
 };
 
 function mostrarProductosCarrito() {
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
     let listaProductos = document.getElementById('lista-productos');
-    let totalCarrito = document.getElementById('total-carrito');
-    let total = 0;
+    let totalCarritoCLP = document.getElementById('total-carrito');
+    let totalCarritoUSD = document.getElementById('total-carrito2');
+    let totalCLP = 0;
+    let totalUSD = 0;
 
-    
     listaProductos.innerHTML = '';
 
-    
     carrito.forEach(function(producto, index) {
-        
         producto.cantidad = producto.cantidad || 1;
 
-        
         let divProducto = document.createElement('div');
         divProducto.classList.add('product');
         divProducto.innerHTML = `
@@ -126,13 +88,13 @@ function mostrarProductosCarrito() {
             </div>
         `;
         listaProductos.appendChild(divProducto);
-
-        
-        total += producto.precio * producto.cantidad;
+        let precioTotalUSD = (producto.precio * producto.cantidad) / preciodolar;
+        totalCLP += producto.precio * producto.cantidad;
+        totalUSD += precioTotalUSD;
     });
 
-    
-    totalCarrito.textContent = `Total: $${total.toFixed(0).replace(/\d(?=(\d{3})+$)/g, '$&,')} CLP`;
+    totalCarritoCLP.textContent = `Total: $${totalCLP.toFixed(0).replace(/\d(?=(\d{3})+$)/g, '$&,')} CLP`;
+    totalCarritoUSD.textContent = `Total: $${totalUSD.toFixed(0).replace(/\d(?=(\d{3})+$)/g, '$&,')} USD`;
 }
 
 function eliminarProducto(index) {
@@ -140,6 +102,7 @@ function eliminarProducto(index) {
     carrito.splice(index, 1);
     localStorage.setItem('carrito', JSON.stringify(carrito));
     mostrarProductosCarrito();
+    actualizarContadorCarrito();
 }
 
 function aumentarCantidad(index) {
@@ -167,10 +130,10 @@ function disminuirCantidad(index) {
     }
 }
 
-
 function limpiarCarrito() {      
     localStorage.removeItem('carrito');
     mostrarProductosCarrito();
+    actualizarContadorCarrito();
 }
 
 document.querySelector('.limpiar-carrito').addEventListener('click', limpiarCarrito);
