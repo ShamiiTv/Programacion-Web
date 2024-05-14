@@ -276,3 +276,27 @@ p{
 .carousel-inner{
     border-radius: 20px !important;
 }
+
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    display: none;
+}
+
+.error {
+    border-color: red;
+}
+
+.show-error {
+    display: block;
+}
+
+
+.correcto{
+    color: green;
+}
+
+.container{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
