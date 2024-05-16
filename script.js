@@ -38,14 +38,14 @@ document.addEventListener("DOMContentLoaded", function () {
             nombreInput.value = nombre.replace(/\d/g, '');
             nombreError.textContent = "El nombre no puede contener números.";
             nombreInput.classList.add("error");
-            nombreError.classList.add("show-error");
+            nombreError.classList.add("mostrar-error");
         } else if (nombre.length < 3) {
             nombreError.textContent = "El nombre debe tener al menos 3 letras.";
             nombreInput.classList.add("error");
-            nombreError.classList.add("show-error");
+            nombreError.classList.add("mostrar-error");
         } else {
             nombreInput.classList.remove("error");
-            nombreError.classList.remove("show-error");
+            nombreError.classList.remove("mostrar-error");
             nombreError.textContent = "";
         }
     }
@@ -57,10 +57,10 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
             emailError.textContent = "El correo electrónico ingresado no es válido.";
             emailInput.classList.add("error");
-            emailError.classList.add("show-error");
+            emailError.classList.add("mostrar-error");
         } else {
             emailInput.classList.remove("error");
-            emailError.classList.remove("show-error");
+            emailError.classList.remove("mostrar-error");
             emailError.textContent = "";
         }
     }
@@ -73,26 +73,22 @@ document.addEventListener("DOMContentLoaded", function () {
             celularInput.value = celular.replace(/\D/g, '').replace(/^(\+).*\+/, '$1');
             celularError.textContent = "El número de celular no es válido.";
             celularInput.classList.add("error");
-            celularError.classList.add("show-error");
+            celularError.classList.add("mostrar-error");
         } else if (celular.length < 8) {
             celularError.textContent = "El número de celular debe tener al menos 8 dígitos.";
             celularInput.classList.add("error");
-            celularError.classList.add("show-error");
+            celularError.classList.add("mostrar-error");
         } else if (celular.length >= 15) {
             celularInput.value = celular.substring(0, 15);
             celularError.textContent = "El número de celular no puede tener más de 15 dígitos.";
             celularInput.classList.add("error");
-            celularError.classList.add("show-error");
+            celularError.classList.add("mostrar-error");
         } else {
             celularInput.classList.remove("error");
-            celularError.classList.remove("show-error");
+            celularError.classList.remove("mostrar-error");
             celularError.textContent = "";
         }
     }
-    
-    
-    
-    
 
     function validarAsunto() {
         var asunto = asuntoSelect.value;
@@ -101,10 +97,10 @@ document.addEventListener("DOMContentLoaded", function () {
         if (asunto === "") {
             asuntoError.textContent = "Por favor selecciona un asunto.";
             asuntoSelect.classList.add("error");
-            asuntoError.classList.add("show-error");
+            asuntoError.classList.add("mostrar-error");
         } else {
             asuntoSelect.classList.remove("error");
-            asuntoError.classList.remove("show-error");
+            asuntoError.classList.remove("mostrar-error");
             asuntoError.textContent = "";
         }
     }
@@ -116,10 +112,10 @@ document.addEventListener("DOMContentLoaded", function () {
         if (mensaje.split(/\s+/).length < 5) {
             mensajeError.textContent = "El mensaje debe tener al menos 5 palabras.";
             mensajeTextarea.classList.add("error");
-            mensajeError.classList.add("show-error");
+            mensajeError.classList.add("mostrar-error");
         } else {
             mensajeTextarea.classList.remove("error");
-            mensajeError.classList.remove("show-error");
+            mensajeError.classList.remove("mostrar-error");
             mensajeError.textContent = "";
         }
     }
@@ -132,7 +128,6 @@ document.addEventListener("DOMContentLoaded", function () {
         validarMensaje();
     }
 });
-
 
 function valorDolar() {
     fetch('https://mindicador.cl/api')
@@ -217,6 +212,7 @@ function mostrarProductosCarrito() {
             <div class="product-details">
                 <h2>${producto.nombre}</h2>
                 <p>Precio: $${producto.precio.toFixed(0).replace(/\d(?=(\d{3})+$)/g, '$&,')} CLP</p>
+                <p>Precio: $${((producto.precio) / preciodolar).toFixed(0).replace(/\d(?=(\d{3})+$)/g, '$&,')} USD</p>
                 <p>Cantidad: ${producto.cantidad}</p>
                 <button onclick="eliminarProducto(${index})" class="btn btn-danger">Eliminar</button>
                 <button onclick="aumentarCantidad(${index})" class="btn btn-primary">+</button>
@@ -271,9 +267,5 @@ function limpiarCarrito() {
     mostrarProductosCarrito();
     actualizarContadorCarrito();
 }
-
-
-
-
 
 document.querySelector('.limpiar-carrito').addEventListener('click', limpiarCarrito);

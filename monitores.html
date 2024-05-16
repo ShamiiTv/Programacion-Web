@@ -39,6 +39,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Corsair XENEON FLEX</h5>
                         <p class="card-text">Precio: $2.293.980 CLP</p>
+                        <p class="card-text">Precio: $2.523 USD</p>
                         <button type="button" class="btn btn-primary" onclick="agregarAlCarrito('Corsair XENEON FLEX', 2293980, 'Mcorsair.png')">
                             Añadir al carrito
                         </button>
@@ -51,6 +52,7 @@
                     <div class="card-body">
                         <h5 class="card-title">LG 45GR95QE-B</h5>
                         <p class="card-text">Precio: $1.859.990 CLP</p>
+                        <p class="card-text">Precio: $2.045 USD</p>
                         <button type="button" class="btn btn-primary" onclick="agregarAlCarrito('LG 45GR95QE-B', 1859990, 'Mlg.png')">
                             Añadir al carrito
                         </button>
@@ -63,6 +65,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Samsung Odyssey OLED G9</h5>
                         <p class="card-text">Precio: $1.335.700 CLP</p>
+                        <p class="card-text">Precio: $1.468 USD</p>
                         <button type="button" class="btn btn-primary" onclick="agregarAlCarrito('Samsung Odyssey OLED G9', 1335700, 'Msamsung.png')">
                             Añadir al carrito
                         </button>
@@ -75,6 +78,7 @@
                     <div class="card-body">
                         <h5 class="card-title">LG UltraGear 49GR85DC-B</h5>
                         <p class="card-text">Precio: $1.279.990 CLP</p>
+                        <p class="card-text">Precio: $1.407 USD</p>
                         <button type="button" class="btn btn-primary" onclick="agregarAlCarrito('LG UltraGear 49GR85DC-B', 1279990, 'mlg2.png')">
                             Añadir al carrito
                         </button>
@@ -88,6 +92,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Corsair XENEON 27QHD240 OLED</h5>
                         <p class="card-text">Precio: $1.158.980 CLP</p>
+                        <p class="card-text">Precio: $1.274 USD</p>
                         <button type="button" class="btn btn-primary" onclick="agregarAlCarrito('Corsair XENEON 27QHD240 OLED', 1158980, 'mcorsair2.png')">
                             Añadir al carrito
                         </button>
@@ -101,6 +106,7 @@
                     <div class="card-body">
                         <h5 class="card-title">ASUS ROG Swift PG27AQDM</h5>
                         <p class="card-text">Precio: $1.129.990 CLP</p>
+                        <p class="card-text">Precio: $1.242 USD</p>
                         <button type="button" class="btn btn-primary" onclick="agregarAlCarrito('ASUS ROG Swift PG27AQDM', 1129990, 'masus.png')">
                             Añadir al carrito
                         </button>
@@ -145,74 +151,6 @@
             </ul>
         </div>
     </footer>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-    <script>
-        
-        function actualizarContadorCarrito() {
-            
-            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-            
-            
-            let contador = document.querySelector('.carro span');
-    
-            
-            if (contador) {
-                contador.textContent = carrito.length;
-            } else {
-                document.querySelector('.carro').innerHTML += `<span class="badge bg-primary">${carrito.length}</span>`;
-            }
-        }
-    
-        
-        actualizarContadorCarrito();
-    
-        
-        window.onscroll = function() {scrollFunction()};
-    
-        function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                document.getElementById("volverArriba").classList.add("mostrar");
-            } else {
-                document.getElementById("volverArriba").classList.remove("mostrar");
-            }
-        }
-    
-        
-        document.getElementById("volverArriba").addEventListener("click", function() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        });
-    
-        function agregarAlCarrito(nombre, precio, imagen) {
-        
-        $('#exampleModal').modal('show');
-
-        
-        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-
-        
-        let productoExistente = carrito.find(producto => producto.nombre === nombre);
-        
-        if (productoExistente) {
-            
-            productoExistente.cantidad = (productoExistente.cantidad || 1) + 1;
-        } else {
-            
-            carrito.push({ nombre: nombre, precio: precio, imagen: imagen, cantidad: 1 });
-        }
-
-        
-        localStorage.setItem('carrito', JSON.stringify(carrito));
-
-         
-        actualizarContadorCarrito();
-    }
-    </script>
-    
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>

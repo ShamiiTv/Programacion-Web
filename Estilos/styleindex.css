@@ -277,7 +277,7 @@ p{
     border-radius: 20px !important;
 }
 
-.error-message {
+.mensaje-error {
     color: red;
     font-size: 0.9rem;
     display: none;
@@ -287,7 +287,7 @@ p{
     border-color: red;
 }
 
-.show-error {
+.mostrar-error {
     display: block;
 }
 
@@ -299,4 +299,10 @@ p{
 .container{
     margin-top: 5%;
     margin-bottom: 5%;
+}
+.barralateral {
+    display: flex;
+    flex-direction: column;
+    background-color: #2b2b2b;
+    left: 0;
 }
